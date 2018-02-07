@@ -1,0 +1,618 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+ol, ul {
+  list-style: none; }
+
+p, h1, h2, h3, h4, h5, h6, a {
+  color: #000;
+  font-family: 'Dancing Script', cursive;
+  font-style: italic;
+  font-weight: normal;
+  text-decoration: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+input:focus {
+  outline: none; }
+
+select:focus {
+  outline: none; }
+
+textarea:focus {
+  outline: none; }
+
+button:focus {
+  outline: none; }
+
+body {
+  background: #9c9090; }
+
+.main {
+  background: #262934;
+  border-radius: 20px;
+  box-shadow: 1px 5px 15px 5px rgba(0, 0, 0, 0.3), inset 0 4px 1px 1px #343640, inset 0 -3px 1px 1px rgba(197, 199, 204, 0.19);
+  margin: 40px auto;
+  padding: 20px 40px 40px;
+  position: relative;
+  width: 1200px; }
+
+.main__headerContainer {
+  background: url("bluebanner.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 54px;
+  margin: 0 0 10px; }
+
+.main__header {
+  color: #9c9bae;
+  font-size: 22px;
+  font-style: italic;
+  line-height: 50px;
+  margin: 0 0 20px;
+  text-align: center; }
+
+.keyBoardContainer {
+  background: #383c4b;
+  float: left;
+  margin: 0 0 20px;
+  padding: 45px 50px;
+  position: relative;
+  width: 760px; }
+
+.keyboard {
+  background: linear-gradient(to bottom, #474a55, #60636e);
+  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.3), inset 0 4px 1px 1px #343640, inset 0 -3px 1px 1px rgba(197, 199, 204, 0.19);
+  font-size: 0;
+  height: 230px; }
+  .keyboard .keyboard__octave__btn__icon {
+    color: #e3e3e6;
+    font-size: 10px;
+    line-height: 30px;
+    text-align: center; }
+
+.keyboard__topSettings {
+  height: 70px;
+  padding: 20px;
+  width: 100%; }
+
+.keyboard__octave {
+  border-radius: 40%;
+  display: inline-block;
+  height: 30px;
+  vertical-align: top; }
+
+.keyboard__octave__label {
+  border-radius: 3px;
+  display: inline-block;
+  height: 30px;
+  padding: 0 20px 0 10px;
+  position: relative;
+  text-align: center; }
+
+.keyboard__octave__label__para {
+  color: #9a9a9a;
+  font-size: 12px;
+  line-height: 30px;
+  position: relative;
+  text-align: center;
+  top: 3px; }
+
+.keyboard__volume__label {
+  border-radius: 3px;
+  display: inline-block;
+  height: 30px;
+  padding: 0 10px 0 60px;
+  position: relative;
+  text-align: center; }
+
+.keyboard__octave__btn {
+  background-image: linear-gradient(to bottom, #474a55, #60636e);
+  border-radius: 3px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3), inset 0 4px 1px 1px #444850, inset 0 -3px 1px 1px rgba(197, 199, 204, 0.19);
+  display: inline-block;
+  height: 30px;
+  text-align: center;
+  width: 30px; }
+  .keyboard__octave__btn:hover {
+    background-image: linear-gradient(#474a55, #676a75);
+    cursor: pointer; }
+  .keyboard__octave__btn:active:hover {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3), inset 0 6px 1px 1px #444850, inset 0 -1px 1px 1px rgba(197, 199, 204, 0.19);
+    cursor: pointer; }
+
+.keyboard__octave__value {
+  background-image: linear-gradient(#2b2c33, #3f424c);
+  border-radius: 3px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3), inset 0 4px 1px 1px rgba(106, 110, 119, 0.19), inset 0 -3px 1px 1px #343640;
+  display: inline-block;
+  height: 30px;
+  vertical-align: top;
+  width: 30px; }
+
+.keyboard__octave__valuePara {
+  color: #e3e3e6;
+  font-size: 12px;
+  line-height: 32px;
+  text-align: center; }
+
+.keyboard__volumne {
+  display: inline-block;
+  margin: 13px 20px; }
+
+.keyboard__volumeSlider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #a5a5a5;
+  border-radius: 5px;
+  height: 6px;
+  opacity: .7;
+  outline: none;
+  transition: opacity .2s;
+  width: 100%; }
+  .keyboard__volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #1e1e24;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 18px;
+    width: 18px; }
+  .keyboard__volumeSlider::-moz-range-thumb {
+    background: #4caf50;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 18px;
+    width: 18px; }
+
+.keyboard__leftSettings {
+  display: inline-block;
+  height: 160px;
+  width: 100px; }
+
+.keyboard__keys {
+  display: inline-block; }
+
+.keyboard__keys__whiteNote {
+  background: #e9eae5;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3), inset 0 0 0 0 #343640, inset 0 -3px 0 1px #d3d3d3;
+  display: inline-block;
+  height: 160px;
+  width: 48px; }
+  .keyboard__keys__whiteNote:hover {
+    cursor: pointer; }
+
+.keyboard__blackkeys {
+  display: inline-block;
+  position: absolute; }
+  .keyboard__blackkeys .pressedKey {
+    background: #474957; }
+
+.keyboard__keys__blackNote {
+  background: #23252f;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.8);
+  display: inline-block;
+  height: 100px;
+  width: 30px; }
+  .keyboard__keys__blackNote:hover {
+    cursor: pointer; }
+
+.keyboard__Whitekeys .pressedKey {
+  background: #dcdcda; }
+
+.leftMarginSmall {
+  margin-left: 9px; }
+
+.leftMarginBig {
+  margin-left: 34px; }
+
+.rightMarginSmall {
+  margin-right: 9px; }
+
+.rightMarginBig {
+  margin-right: 34px; }
+
+.rightMarginVeryBig {
+  margin-right: 33px; }
+
+.loopControls {
+  background: #383c4b;
+  float: right;
+  margin: 0 0 20px;
+  position: relative;
+  text-align: center;
+  width: 323px; }
+
+.loopControls__header {
+  color: #9c9cae;
+  font-size: 14px;
+  left: 10px;
+  position: absolute;
+  top: 10px; }
+
+.keyboard__leftSettings__Btn {
+  background-image: linear-gradient(to bottom, #474a55, #60636e);
+  border-radius: 5px;
+  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.3), inset 0 4px 1px 1px #343640, inset 0 -3px 1px 1px rgba(197, 199, 204, 0.19);
+  display: inline-block;
+  height: 100px;
+  margin: 25px 5px;
+  width: 60px; }
+  .keyboard__leftSettings__Btn:hover {
+    background-image: linear-gradient(to bottom, #474a55, #676a75);
+    cursor: pointer; }
+  .keyboard__leftSettings__Btn:active:hover {
+    box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.3), inset 0 6px 1px 1px #343640, inset 0 -1px 1px 1px rgba(197, 199, 204, 0.19);
+    cursor: pointer; }
+    .keyboard__leftSettings__Btn:active:hover p {
+      top: 1px; }
+
+.loopBtn__led {
+  color: #fff;
+  font-size: 8px;
+  line-height: 40px;
+  position: relative;
+  text-align: center; }
+
+.loopBtn__label {
+  color: #fff;
+  font-size: 16px;
+  line-height: 50px;
+  position: relative;
+  text-align: center; }
+
+.loopProgress {
+  background: #393c4a;
+  clear: both;
+  font-size: 0;
+  margin: 30px 0 20px;
+  padding: 50px 20px 30px;
+  position: relative;
+  width: 100%; }
+
+.loopControls__loopTimer__container {
+  background-image: linear-gradient(to bottom, #2b2c33, #3f424c);
+  border-radius: 5px;
+  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.3), inset 0 4px 1px 1px rgba(197, 199, 204, 0.19), inset 0 -3px 1px 1px #343640;
+  height: 100px;
+  margin: 30px auto;
+  text-align: center;
+  width: 40%; }
+
+.loopControls__loopTimer {
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  font-size: 20px;
+  line-height: 60px;
+  margin: auto;
+  padding-top: 35px;
+  text-align: center; }
+
+.recorderOn {
+  color: #b03c3c; }
+
+.playBtnOn {
+  color: #5f9c5f; }
+
+.drumMachine {
+  background: #3a3c49;
+  font-size: 0;
+  padding: 40px 20px 30px;
+  position: relative; }
+
+.drumMachine__header {
+  color: #9c9cae;
+  font-size: 14px;
+  left: 10px;
+  position: absolute;
+  top: 10px; }
+
+.drumMachine__beat {
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+  border-style: solid;
+  border-top-color: #3a3c49;
+  border-top-width: 3px;
+  display: inline-block;
+  vertical-align: top;
+  width: 3.125%; }
+
+.drumMachine__beatsContainer {
+  display: inline-block;
+  font-size: 0;
+  margin: 0 auto;
+  width: 1040px; }
+
+.loopProgress__beat {
+  background: #2b2e3c;
+  border-top-color: #3a3c49;
+  border-top-style: solid;
+  border-top-width: 3px;
+  box-shadow: inset 0 0 3px #656565;
+  display: inline-block;
+  height: 16px;
+  width: 3.125%; }
+
+.loopProgress__beatsContainer {
+  clear: both;
+  margin: 0 auto;
+  vertical-align: top;
+  width: 100%; }
+
+.drumMachine__labelContainer {
+  display: inline-block;
+  vertical-align: top;
+  width: 40px; }
+
+.drumMachine__label {
+  color: #7d7d8d;
+  font-size: 12px;
+  line-height: 30px;
+  margin-top: 3px; }
+
+.drumMachine__instr {
+  background: #2e313e;
+  border: 1px solid #4c4c4c;
+  box-sizing: border-box;
+  height: 33px;
+  width: 33px; }
+  .drumMachine__instr:hover {
+    cursor: pointer; }
+
+.drum__highlight {
+  background: linear-gradient(to right, #676491, #535377); }
+
+.highlightBeat {
+  border-top-color: #a95353; }
+
+.drumMachine__leftBorder {
+  border-left-color: #7d7f86;
+  border-left-style: solid;
+  border-left-width: 1px; }
+
+.loopProgress__leftBorder {
+  border-left-color: #595c65;
+  border-left-style: solid;
+  border-left-width: 2px; }
+
+.main__questionIcon.fa {
+  color: #808080;
+  font-size: 20px;
+  line-height: 40px;
+  padding: 0 15px;
+  position: absolute;
+  right: 0;
+  top: 0; }
+  .main__questionIcon.fa:hover {
+    color: #dcdcdc;
+    cursor: pointer; }
+
+.info {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  color: #fff;
+  height: 320px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  transition: height 1s;
+  width: 760px;
+  z-index: 1; }
+
+.info__header {
+  color: #fff;
+  font-size: 17px;
+  margin: 30px; }
+
+.info__label {
+  color: #d3d3d3;
+  font-size: 15px;
+  margin: 0 0 3px 30px; }
+
+.info__value {
+  color: #fff;
+  font-size: 15px;
+  margin: 0 0 10px 30px;
+  margin-bottom: 20px; }
+
+.info__key {
+  background: rgba(102, 117, 152, 0.6);
+  color: #d3d3d3;
+  font-size: 13px;
+  padding: 10px 15px;
+  position: absolute; }
+
+.info__key__left {
+  left: 50px;
+  top: 31px; }
+
+.info__key__right {
+  left: 188px;
+  top: 31px; }
+
+.info__key__w {
+  left: 177px;
+  top: 175px; }
+
+.info__key__e {
+  left: 227px;
+  top: 175px; }
+
+.info__key__t {
+  left: 325px;
+  top: 175px; }
+
+.info__key__y {
+  left: 373px;
+  top: 175px; }
+
+.info__key__u {
+  left: 420px;
+  top: 175px; }
+
+.info__key__o {
+  left: 517px;
+  top: 175px; }
+
+.info__key__p {
+  left: 567px;
+  top: 175px; }
+
+.info__whiteKeyLabel {
+  background: rgba(99, 112, 142, 0.6);
+  color: #d3d3d3;
+  font-size: 13px;
+  left: 68px;
+  padding: 10px 15px;
+  position: absolute;
+  top: 200px; }
+
+.info__whiteKeyContainer {
+  font-size: 0;
+  left: 147px;
+  position: absolute;
+  top: 236px; }
+
+.info__whiteKeyContainer__key {
+  background: rgba(54, 71, 111, 0.6);
+  color: #d3d3d3;
+  display: inline-block;
+  font-size: 13px;
+  margin-left: 6px;
+  padding: 10px 15px;
+  width: 42px; }
+
+.info__chordsContainer {
+  font-size: 0;
+  left: 147px;
+  position: absolute;
+  top: 282px; }
+
+.info__chordsLabel {
+  background: rgba(0, 0, 0, 0.2);
+  color: #d3d3d3;
+  font-size: 13px;
+  left: 47px;
+  padding: 10px 15px;
+  position: absolute;
+  top: 282px; }
+
+.info__close.fa-times {
+  color: #d3d3d3;
+  padding: 15px;
+  position: absolute;
+  right: 0;
+  top: 0; }
+  .info__close.fa-times:hover {
+    color: #fff;
+    cursor: pointer; }
+
+.hideInfo {
+  height: 0; }
+
+@media (max-width: 1200px) {
+  .main {
+    border-radius: 0;
+    margin: 0; }
+  .main__questionIcon.fa-question {
+    display: none; } }
+
+@media screen and (max-width: 1000px) {
+  .main {
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    transform: scale(1);
+    width: 100%; }
+  .keyBoardContainer {
+    margin: 0;
+    padding: 0;
+    width: 100vw; }
+  .keyboard {
+    box-shadow: none;
+    width: 100vw; }
+  .keyboard__keys {
+    float: right;
+    margin-right: 10px; }
+  .loopControls {
+    left: 0;
+    position: absolute;
+    top: 69px;
+    width: calc(100vw - 538px); }
+  .loopControls2 {
+    top: 149px; }
+  .loopBtn__led {
+    display: none; }
+  .drumMachine__labelContainer {
+    display: none; }
+  .drumMachine__beatsContainer {
+    width: 100%; }
+    .drumMachine__beatsContainer > div:nth-of-type(odd) {
+      width: 0; }
+  .main__headerContainer {
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    z-index: 1; }
+  .drumMachine {
+    clear: both;
+    padding: 40px 0; }
+  .loopProgress {
+    display: none; }
+  .keyboard__leftSettings__Btn {
+    height: 40px;
+    margin: 30px 0;
+    width: 25%; }
+  .drumMachine__instr {
+    width: 100%; }
+  .drumMachine__beat {
+    width: 6.25%; } }
+
+@media screen and (max-width: 639px) {
+  .loopControls {
+    width: 100vw; }
+  .keyboard__leftSettings {
+    height: 180px; }
+  .keyboard__volume__label {
+    display: none; }
+  .keyboard__volumne {
+    display: none; }
+  .keyboard__keys__whiteNote {
+    width: calc(100vw/11); }
+  .keyboard__Whitekeys {
+    left: 0;
+    position: relative;
+    width: 100vw;
+    z-index: 1; }
+  .keyboard__blackkeys {
+    left: 0;
+    width: 100vw;
+    z-index: 2; }
+  .keyboard__keys__blackNote {
+    height: 80px;
+    width: calc(100vw/11); }
+  .leftMarginBig {
+    margin-left: calc(100vw/22); }
+  .rightMarginSmall {
+    margin-right: 0; }
+  .rightMarginBig {
+    margin-right: calc(100vw/22); }
+  .rightMarginVeryBig {
+    margin-right: calc(100vw/22); }
+  .leftMarginSmall {
+    margin-left: 0; }
+  .keyboard__keys {
+    margin-right: 0; } }
+
+@media screen and (max-width: 345px) {
+  .main__headerContainer {
+    display: none; } }

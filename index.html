@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en-nz">
+<head>
+  <title>title</title>
+  <link href="style.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <script src="jquery-3.2.1.min.js"></script>
+  <link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
+  <meta id="Viewport" name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes">
+  <script src="audiosynth.js"></script>
+</head>
+<body>
+
+<section class="main">
+  <section class="main__headerContainer">
+    <h1 class="main__header">Loop Builder</h1>
+  </section>
+  <i class="fa fa-question main__questionIcon" aria-hidden="true" onclick="toggleInfo()"></i>
+  <section class="keyBoardContainer">
+    <section class="info hideInfo" id="infoDiv">
+      <i class="fa fa-times info__close" aria-hidden="true" onclick="toggleInfo()"></i>
+      <p class="info__key info__key__left">Left/down arrow</p>
+      <p class="info__key info__key__right">Right/up arrow</p>
+      <p class="info__key info__key__w">W</p>
+      <p class="info__key info__key__e">E</p>
+      <p class="info__key info__key__t">T</p>
+      <p class="info__key info__key__y">Y</p>
+      <p class="info__key info__key__u">U</p>
+      <p class="info__key info__key__o">O</p>
+      <p class="info__key info__key__p">P</p>
+      <p class="info__whiteKeyLabel">Keys</p>
+      <div class="info__whiteKeyContainer">
+        <p class="info__whiteKeyContainer__key">A</p>
+        <p class="info__whiteKeyContainer__key">S</p>
+        <p class="info__whiteKeyContainer__key">D</p>
+        <p class="info__whiteKeyContainer__key">F</p>
+        <p class="info__whiteKeyContainer__key">G</p>
+        <p class="info__whiteKeyContainer__key">H</p>
+        <p class="info__whiteKeyContainer__key">J</p>
+        <p class="info__whiteKeyContainer__key">K</p>
+        <p class="info__whiteKeyContainer__key">L</p>
+        <p class="info__whiteKeyContainer__key">;</p>
+        <p class="info__whiteKeyContainer__key">''</p>
+      </div>
+      <p class="info__chordsLabel">Chords</p>
+      <div class="info__chordsContainer">
+        <p class="info__whiteKeyContainer__key">Z</p>
+        <p class="info__whiteKeyContainer__key">X</p>
+        <p class="info__whiteKeyContainer__key">C</p>
+        <p class="info__whiteKeyContainer__key">V</p>
+        <p class="info__whiteKeyContainer__key">B</p>
+        <p class="info__whiteKeyContainer__key">N</p>
+        <p class="info__whiteKeyContainer__key">M</p>
+      </div>
+    </section>
+    <p class="loopControls__header">Keyboard</p>
+    <section class="keyboard">
+      <article class="keyboard__topSettings">
+        <div class="keyboard__octave">
+          <div class="keyboard__octave__label" >
+            <p class="keyboard__octave__label__para" aria-hidden="true">Octave</p>
+          </div>
+          <div class="keyboard__octave__btn" onclick="changeOctave('down')">
+            <i class="fa fa-minus keyboard__octave__btn__icon" aria-hidden="true"></i>
+          </div>
+          <div class="keyboard__octave__value">
+            <p class="keyboard__octave__valuePara" id="octavePara">3</p>
+          </div>
+          <div class="keyboard__octave__btn" onclick="changeOctave('up')">
+            <i class="fa fa-plus keyboard__octave__btn__icon" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="keyboard__volume__label" >
+          <p class="keyboard__octave__label__para" aria-hidden="true">Volume</p>
+        </div>
+        <div class="keyboard__volumne">
+          <input type="range" min="0" max="100" value="50" class="keyboard__volumeSlider" id="volumeSlider">
+        </div>
+      </article>
+      <article class="keyboard__leftSettings">
+      </article>
+      <article class="keyboard__keys">
+        <article class="keyboard__blackkeys">
+            <div class="keyboard__keys__blackNote leftMarginBig rightMarginSmall" id="C#3" onmousedown="playKeyboardNote('C#', 3, 2, this)" onmouseup="playedKeyUp('C#3')">
+            </div>
+            <div class="keyboard__keys__blackNote leftMarginSmall rightMarginVeryBig" id="D#3" onmousedown="playKeyboardNote('D#', 3, 2, this)" onmouseup="playedKeyUp('D#3')">
+            </div>
+            <div class="keyboard__keys__blackNote leftMarginBig rightMarginSmall" id="F#3" onmousedown="playKeyboardNote('F#', 3, 2, this)" onmouseup="playedKeyUp('F#3')">
+            </div>
+            <div class="keyboard__keys__blackNote leftMarginSmall rightMarginSmall" id="G#3" onmousedown="playKeyboardNote('G#', 3, 2, this)" onmouseup="playedKeyUp('G#3')">
+            </div>
+            <div class="keyboard__keys__blackNote leftMarginSmall rightMarginBig" id="A#3" onmousedown="playKeyboardNote('A#', 3, 2, this)" onmouseup="playedKeyUp('A#3')">
+            </div>
+            <div class="keyboard__keys__blackNote leftMarginBig rightMarginSmall" id="C#4" onmousedown="playKeyboardNote('C#', 4, 2, this)" onmouseup="playedKeyUp('C#4')">
+            </div>
+            <div class="keyboard__keys__blackNote leftMarginSmall rightMarginVeryBig" id="D#4" onmousedown="playKeyboardNote('D#', 4, 2, this)" onmouseup="playedKeyUp('D#4')">
+            </div>
+        </article>
+        <article class="keyboard__Whitekeys">
+
+          <div class="keyboard__keys__whiteNote" id="C3" onmousedown="playKeyboardNote('C', 3, 2, this)" onmouseup="playedKeyUp('C3')">
+          </div>
+          <div class="keyboard__keys__whiteNote" id="D3" onmousedown="playKeyboardNote('D', 3, 2, this)" onmouseup="playedKeyUp('D3')">
+          </div>
+          <div class="keyboard__keys__whiteNote" id="E3" onmousedown="playKeyboardNote('E', 3, 2, this)" onmouseup="playedKeyUp('E3')">
+          </div>
+          <div class="keyboard__keys__whiteNote" id="F3" onmousedown="playKeyboardNote('F', 3, 2, this)" onmouseup="playedKeyUp('F3')">
+          </div>
+          <div class="keyboard__keys__whiteNote" id="G3" onmousedown="playKeyboardNote('G', 3, 2, this)" onmouseup="playedKeyUp('G3')">
+          </div>
+          <div class="keyboard__keys__whiteNote" id="A3" onmousedown="playKeyboardNote('A', 3, 2, this)" onmouseup="playedKeyUp('A3')">
+          </div>
+          <div class="keyboard__keys__whiteNote" id="B3" onmousedown="playKeyboardNote('B', 3, 2, this)" onmouseup="playedKeyUp('B3')">
+          </div>
+          <div class="keyboard__keys__whiteNote" id="C4" onmousedown="playKeyboardNote('C', 4, 2, this)" onmouseup="playedKeyUp('C4')">
+          </div>
+          <div class="keyboard__keys__whiteNote" id="D4" onmousedown="playKeyboardNote('D', 4, 2, this)" onmouseup="playedKeyUp('D4')">
+          </div>
+          <div class="keyboard__keys__whiteNote" id="E4" onmousedown="playKeyboardNote('E', 4, 2, this)" onmouseup="playedKeyUp('E4')">
+          </div>
+          <div class="keyboard__keys__whiteNote" id="F4" onmousedown="playKeyboardNote('F', 4, 2, this)" onmouseup="playedKeyUp('F4')">
+          </div>
+        </article>
+      </article>
+    </section>
+  </section>
+
+  <section class="loopControls">
+    <p class="loopControls__header">Loop 1</p>
+    <div class="loopControls__container">
+      <div class="keyboard__leftSettings__Btn" onclick="toggleRecord(this, 1)">
+        <p class="loopBtn__led"><i class="fa fa-circle" aria-hidden="true"></i></p>
+        <p class="loopBtn__label"><i class="fa fa-circle" aria-hidden="true"></i></p>
+      </div>
+      <div class="keyboard__leftSettings__Btn" onclick="deleteRecorded('deleteBtn1', 1)" id="deleteBtn1">
+        <p class="loopBtn__led"><i class="fa fa-circle" aria-hidden="true"></i></p>
+        <p class="loopBtn__label"><i class="fa fa-trash-o" aria-hidden="true"></i></p>
+      </div>
+      <div class="keyboard__leftSettings__Btn" onclick="togglePlay(this, 1)" id="playBtn">
+        <p class="loopBtn__led"><i class="fa fa-circle" aria-hidden="true"></i></p>
+        <p class="loopBtn__label"><i class="fa fa-play" aria-hidden="true"></i></p>
+      </div>
+    </div>
+    <!-- <div class="loopControls__loopTimer__container">
+      <p class="loopControls__loopTimer" id="loopTimer">0</p>
+    </div> -->
+
+  </section>
+
+  <section class="loopControls loopControls2">
+    <p class="loopControls__header">Loop 2</p>
+    <div class="loopControls__container">
+      <div class="keyboard__leftSettings__Btn" onclick="toggleRecord(this, 2)">
+        <p class="loopBtn__led"><i class="fa fa-circle" aria-hidden="true"></i></p>
+        <p class="loopBtn__label"><i class="fa fa-circle" aria-hidden="true"></i></p>
+      </div>
+      <div class="keyboard__leftSettings__Btn" onclick="deleteRecorded('deleteBtn2', 2)" id="deleteBtn2">
+        <p class="loopBtn__led"><i class="fa fa-circle" aria-hidden="true"></i></p>
+        <p class="loopBtn__label"><i class="fa fa-trash-o" aria-hidden="true"></i></p>
+      </div>
+      <div class="keyboard__leftSettings__Btn" onclick="togglePlay(this, 2)" id="playBtn">
+        <p class="loopBtn__led"><i class="fa fa-circle" aria-hidden="true"></i></p>
+        <p class="loopBtn__label"><i class="fa fa-play" aria-hidden="true"></i></p>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="loopProgress">
+    <p class="loopControls__header">Progress</p>
+    <article class="loopProgress__beatsContainer">
+      <div class="loopProgress__beat loopProgress__leftBorder" id="beat__1">
+      </div>
+      <div class="loopProgress__beat" id="beat__2">
+      </div>
+      <div class="loopProgress__beat" id="beat__3">
+      </div>
+      <div class="loopProgress__beat" id="beat__4">
+      </div>
+      <div class="loopProgress__beat loopProgress__leftBorder" id="beat__5">
+      </div>
+      <div class="loopProgress__beat" id="beat__6">
+      </div>
+      <div class="loopProgress__beat" id="beat__7">
+      </div>
+      <div class="loopProgress__beat" id="beat__8">
+      </div>
+      <div class="loopProgress__beat loopProgress__leftBorder" id="beat__9">
+      </div>
+      <div class="loopProgress__beat" id="beat__10">
+      </div>
+      <div class="loopProgress__beat" id="beat__11">
+      </div>
+      <div class="loopProgress__beat" id="beat__12">
+      </div>
+      <div class="loopProgress__beat loopProgress__leftBorder" id="beat__13">
+      </div>
+      <div class="loopProgress__beat" id="beat__14">
+      </div>
+      <div class="loopProgress__beat" id="beat__15">
+      </div>
+      <div class="loopProgress__beat" id="beat__16">
+      </div>
+      <div class="loopProgress__beat loopProgress__leftBorder" id="beat__17">
+      </div>
+      <div class="loopProgress__beat" id="beat__18">
+      </div>
+      <div class="loopProgress__beat" id="beat__19">
+      </div>
+      <div class="loopProgress__beat" id="beat__20">
+      </div>
+      <div class="loopProgress__beat loopProgress__leftBorder" id="beat__21">
+      </div>
+      <div class="loopProgress__beat" id="beat__22">
+      </div>
+      <div class="loopProgress__beat" id="beat__23">
+      </div>
+      <div class="loopProgress__beat" id="beat__24">
+      </div>
+      <div class="loopProgress__beat loopProgress__leftBorder" id="beat__25">
+      </div>
+      <div class="loopProgress__beat" id="beat__26">
+      </div>
+      <div class="loopProgress__beat" id="beat__27">
+      </div>
+      <div class="loopProgress__beat" id="beat__28">
+      </div>
+      <div class="loopProgress__beat loopProgress__leftBorder" id="beat__29">
+      </div>
+      <div class="loopProgress__beat" id="beat__30">
+      </div>
+      <div class="loopProgress__beat" id="beat__31">
+      </div>
+      <div class="loopProgress__beat" id="beat__32">
+      </div>
+    </article>
+  </section>
+
+  <section class="drumMachine">
+    <p class="drumMachine__header">Drum Machine</p>
+        <div class="drumMachine__labelContainer">
+          <p class="drumMachine__label">Bass</p>
+          <p class="drumMachine__label">Closed</p>
+          <p class="drumMachine__label">Open</p>
+          <p class="drumMachine__label">Snare</p>
+          <p class="drumMachine__label">High</p>
+          <p class="drumMachine__label">Low</p>
+          <p class="drumMachine__label">Shake</p>
+          <p class="drumMachine__label">Rim</p>
+        </div>
+    <article class="drumMachine__beatsContainer">
+      <div class="drumMachine__beat" id="drum__1">
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('bass', 1, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('closedDrum', 1, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('open', 1, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('snare', 1, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('high', 1, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('low', 1, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('shake', 1, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('rim', 1, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__2">
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('bass', 2, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('closedDrum', 2, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('open', 2, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('snare', 2, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('high', 2, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('low', 2, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('shake', 2, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('rim', 2, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__3">
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('bass', 3, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('closedDrum', 3, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('open', 3, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('snare', 3, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('high', 3, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('low', 3, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('shake', 3, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('rim', 3, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__4">
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('bass', 4, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('closedDrum', 4, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('open', 4, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('snare', 4, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('high', 4, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('low', 4, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('shake', 4, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('rim', 4, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__5">
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('bass', 5, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('closedDrum', 5, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('open', 5, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('snare', 5, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('high', 5, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('low', 5, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('shake', 5, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('rim', 5, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__6">
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('bass', 6, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('closedDrum', 6, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('open', 6, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('snare', 6, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('high', 6, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('low', 6, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('shake', 6, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('rim', 6, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__7">
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('bass', 7, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('closedDrum', 7, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('open', 7, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('snare', 7, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('high', 7, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('low', 7, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('shake', 7, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('rim', 7, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__8">
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('bass', 8, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('closedDrum', 8, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('open', 8, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('snare', 8, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('high', 8, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('low', 8, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('shake', 8, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('rim', 8, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__9">
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('bass', 9, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('closedDrum', 9, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('open', 9, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('snare', 9, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('high', 9, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('low', 9, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('shake', 9, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('rim', 9, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__10">
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('bass', 10, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('closedDrum', 10, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('open', 10, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('snare', 10, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('high', 10, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('low', 10, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('shake', 10, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('rim', 10, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__11">
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('bass', 11, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('closedDrum', 11, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('open', 11, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('snare', 11, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('high', 11, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('low', 11, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('shake', 11, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('rim', 11, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__12">
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('bass', 12, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('closedDrum', 12, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('open', 12, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('snare', 12, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('high', 12, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('low', 12, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('shake', 12, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('rim', 12, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__13">
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('bass', 13, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('closedDrum', 13, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('open', 13, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('snare', 13, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('high', 13, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('low', 13, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('shake', 13, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('rim', 13, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__14">
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('bass', 14, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('closedDrum', 14, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('open', 14, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('snare', 14, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('high', 14, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('low', 14, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('shake', 14, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('rim', 14, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__15">
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('bass', 15, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('closedDrum', 15, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('open', 15, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('snare', 15, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('high', 15, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('low', 15, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('shake', 15, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('rim', 15, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__16">
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('bass', 16, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('closedDrum', 16, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('open', 16, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('snare', 16, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('high', 16, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('low', 16, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('shake', 16, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('rim', 16, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__17">
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('bass', 17, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('closedDrum', 17, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('open', 17, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('snare', 17, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('high', 17, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('low', 17, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('shake', 17, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('rim', 17, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__18">
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('bass', 18, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('closedDrum', 18, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('open', 18, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('snare', 18, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('high', 18, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('low', 18, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('shake', 18, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('rim', 18, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__19">
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('bass', 19, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('closedDrum', 19, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('open', 19, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('snare', 19, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('high', 19, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('low', 19, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('shake', 19, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('rim', 19, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__20">
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('bass', 20, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('closedDrum', 20, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('open', 20, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('snare', 20, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('high', 20, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('low', 20, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('shake', 20, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('rim', 20, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__21">
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('bass', 21, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('closedDrum', 21, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('open', 21, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('snare', 21, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('high', 21, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('low', 21, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('shake', 21, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('rim', 21, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__22">
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('bass', 22, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('closedDrum', 22, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('open', 22, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('snare', 22, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('high', 22, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('low', 22, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('shake', 22, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('rim', 22, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__23">
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('bass', 23, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('closedDrum', 23, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('open', 23, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('snare', 23, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('high', 23, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('low', 23, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('shake', 23, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('rim', 23, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__24">
+        <div class="drumMachine__instr"onclick="toggleDrumBeat('bass', 24, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('closedDrum', 24, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('open', 24, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('snare', 24, this)">
+        </div>
+        <div class="drumMachine__instr"onclick="toggleDrumBeat('high', 24, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('low', 24, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('shake', 24, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('rim', 24, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__25">
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('bass', 25, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('closedDrum', 25, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('open', 25, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('snare', 25, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('high', 25, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('low', 25, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('shake', 25, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder" onclick="toggleDrumBeat('rim', 25, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__26">
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('bass', 26, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('closedDrum', 26, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('open', 26, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('snare', 26, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('high', 26, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('low', 26, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('shake', 26, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('rim', 26, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__27">
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('bass', 27, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('closedDrum', 27, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('open', 27, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('snare', 27, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('high', 27, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('low', 27, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('shake', 27, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('rim', 27, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__28">
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('bass', 28, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('closedDrum', 28, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('open', 28, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('snare', 28, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('high', 28, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('low', 28, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('shake', 28, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('rim', 28, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__29">
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('bass', 29, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('closedDrum', 29, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('open', 29, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('snare', 29, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('high', 29, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('low', 29, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('shake', 29, this)">
+        </div>
+        <div class="drumMachine__instr drumMachine__leftBorder"  onclick="toggleDrumBeat('rim', 29, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__30">
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('bass', 30, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('closedDrum', 30, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('open', 30, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('snare', 30, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('high', 30, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('low', 30, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('shake', 30, this)">
+        </div>
+        <div class="drumMachine__instr"  onclick="toggleDrumBeat('rim', 30, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__31">
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('bass', 31, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('closedDrum', 31, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('open', 31, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('snare', 31, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('high', 31, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('low', 31, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('shake', 31, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('rim', 31, this)">
+        </div>
+      </div>
+      <div class="drumMachine__beat" id="drum__32">
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('bass', 32, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('closedDrum', 32, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('open', 32, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('snare', 32, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('high', 32, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('low', 32, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('shake', 32, this)">
+        </div>
+        <div class="drumMachine__instr" onclick="toggleDrumBeat('rim', 32, this)">
+        </div>
+      </div>
+    </article>
+  </section>
+</section>
+
+<div id="drumNoteContainer">
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+</div>
+
+
+<div id="pianoNodeContainer">
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+  <audio preload="auto" src="123"></audio>
+</div>
+
+<script src="script.js" type="text/javascript"></script>
+
+</body>
+</html>
