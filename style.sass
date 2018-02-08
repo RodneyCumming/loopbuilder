@@ -10,7 +10,7 @@ ol, ul
 //--grays--
 $black: #000
 $black-opaque-two: rgba(0, 0, 0, .2)
-$background-gray: #9c9090
+$background-gray: #5a5a67
 $background-gray-main: #262934
 $background-gray-three: #29292e
 $inset-gray: #343640
@@ -666,8 +666,9 @@ body
   .main__headerContainer
     position: absolute
     right: 20px
-    top: 12px
+    top: 6px
     z-index: 1
+    background: none
 
   .drumMachine
     clear: both
@@ -687,7 +688,10 @@ body
   .drumMachine__beat
     width: 6.25%
 
-// ---- portrail mobile ----
+  .loopControls__header
+    display: none
+
+    // ---- portrail mobile ----
 @media screen and (max-width: 639px)
   .loopControls
     width: 100vw
@@ -723,6 +727,7 @@ body
     margin-left: calc(100vw/22)
 
   .rightMarginSmall
+    border-right: 1px solid gray
     margin-right: 0
 
   .rightMarginBig

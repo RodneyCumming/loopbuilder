@@ -30,7 +30,7 @@ button:focus {
   outline: none; }
 
 body {
-  background: #9c9090; }
+  background: #5a5a67; }
 
 .main {
   background: #262934;
@@ -561,8 +561,9 @@ body {
   .main__headerContainer {
     position: absolute;
     right: 20px;
-    top: 12px;
-    z-index: 1; }
+    top: 6px;
+    z-index: 1;
+    background: none; }
   .drumMachine {
     clear: both;
     padding: 40px 0; }
@@ -575,7 +576,9 @@ body {
   .drumMachine__instr {
     width: 100%; }
   .drumMachine__beat {
-    width: 6.25%; } }
+    width: 6.25%; }
+  .loopControls__header {
+    display: none; } }
 
 @media screen and (max-width: 639px) {
   .loopControls {
@@ -603,6 +606,7 @@ body {
   .leftMarginBig {
     margin-left: calc(100vw/22); }
   .rightMarginSmall {
+    border-right: 1px solid gray;
     margin-right: 0; }
   .rightMarginBig {
     margin-right: calc(100vw/22); }
