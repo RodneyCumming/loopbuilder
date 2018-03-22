@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en-nz">
 <head>
-  <title>title</title>
+  <title>Loop Builder</title>
   <link href="style.css" rel="stylesheet">
   <meta charset="UTF-8">
   <script src="jquery-3.2.1.min.js"></script>
   <link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
   <meta id="Viewport" name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes">
   <script src="audiosynth.js"></script>
+  <link rel="icon" href="favicon.ico">
 </head>
 <body>
 
@@ -81,44 +82,44 @@
       </article>
       <article class="keyboard__keys">
         <article class="keyboard__blackkeys">
-            <div class="keyboard__keys__blackNote leftMarginBig rightMarginSmall" id="C#3" onmousedown="playKeyboardNote('C#', 3, 2, this)" onmouseup="playedKeyUp('C#3')">
+            <div class="keyboard__keys__blackNote leftMarginBig rightMarginSmall" id="C#3" onmousedown="playKeyboardNote('C#', octaveValue, 2, this)" onmouseup="playedKeyUp('C#3')">
             </div>
-            <div class="keyboard__keys__blackNote leftMarginSmall rightMarginVeryBig" id="D#3" onmousedown="playKeyboardNote('D#', 3, 2, this)" onmouseup="playedKeyUp('D#3')">
+            <div class="keyboard__keys__blackNote leftMarginSmall rightMarginVeryBig" id="D#3" onmousedown="playKeyboardNote('D#', octaveValue, 2, this)" onmouseup="playedKeyUp('D#3')">
             </div>
-            <div class="keyboard__keys__blackNote leftMarginBig rightMarginSmall" id="F#3" onmousedown="playKeyboardNote('F#', 3, 2, this)" onmouseup="playedKeyUp('F#3')">
+            <div class="keyboard__keys__blackNote leftMarginBig rightMarginSmall" id="F#3" onmousedown="playKeyboardNote('F#', octaveValue, 2, this)" onmouseup="playedKeyUp('F#3')">
             </div>
-            <div class="keyboard__keys__blackNote leftMarginSmall rightMarginSmall" id="G#3" onmousedown="playKeyboardNote('G#', 3, 2, this)" onmouseup="playedKeyUp('G#3')">
+            <div class="keyboard__keys__blackNote leftMarginSmall rightMarginSmall" id="G#3" onmousedown="playKeyboardNote('G#', octaveValue, 2, this)" onmouseup="playedKeyUp('G#3')">
             </div>
-            <div class="keyboard__keys__blackNote leftMarginSmall rightMarginBig" id="A#3" onmousedown="playKeyboardNote('A#', 3, 2, this)" onmouseup="playedKeyUp('A#3')">
+            <div class="keyboard__keys__blackNote leftMarginSmall rightMarginBig" id="A#3" onmousedown="playKeyboardNote('A#', octaveValue, 2, this)" onmouseup="playedKeyUp('A#3')">
             </div>
-            <div class="keyboard__keys__blackNote leftMarginBig rightMarginSmall" id="C#4" onmousedown="playKeyboardNote('C#', 4, 2, this)" onmouseup="playedKeyUp('C#4')">
+            <div class="keyboard__keys__blackNote leftMarginBig rightMarginSmall" id="C#4" onmousedown="playKeyboardNote('C#', octaveValue + 1, 2, this)" onmouseup="playedKeyUp('C#4')">
             </div>
-            <div class="keyboard__keys__blackNote leftMarginSmall rightMarginVeryBig" id="D#4" onmousedown="playKeyboardNote('D#', 4, 2, this)" onmouseup="playedKeyUp('D#4')">
+            <div class="keyboard__keys__blackNote leftMarginSmall rightMarginVeryBig" id="D#4" onmousedown="playKeyboardNote('D#', octaveValue + 1, 2, this)" onmouseup="playedKeyUp('D#4')">
             </div>
         </article>
         <article class="keyboard__Whitekeys">
 
-          <div class="keyboard__keys__whiteNote" id="C3" onmousedown="playKeyboardNote('C', 3, 2, this)" onmouseup="playedKeyUp('C3')">
+          <div class="keyboard__keys__whiteNote" id="C3" onmousedown="playKeyboardNote('C', octaveValue, 2, this)" onmouseup="playedKeyUp('C3')">
           </div>
-          <div class="keyboard__keys__whiteNote" id="D3" onmousedown="playKeyboardNote('D', 3, 2, this)" onmouseup="playedKeyUp('D3')">
+          <div class="keyboard__keys__whiteNote" id="D3" onmousedown="playKeyboardNote('D', octaveValue, 2, this)" onmouseup="playedKeyUp('D3')">
           </div>
-          <div class="keyboard__keys__whiteNote" id="E3" onmousedown="playKeyboardNote('E', 3, 2, this)" onmouseup="playedKeyUp('E3')">
+          <div class="keyboard__keys__whiteNote" id="E3" onmousedown="playKeyboardNote('E', octaveValue, 2, this)" onmouseup="playedKeyUp('E3')">
           </div>
-          <div class="keyboard__keys__whiteNote" id="F3" onmousedown="playKeyboardNote('F', 3, 2, this)" onmouseup="playedKeyUp('F3')">
+          <div class="keyboard__keys__whiteNote" id="F3" onmousedown="playKeyboardNote('F', octaveValue, 2, this)" onmouseup="playedKeyUp('F3')">
           </div>
-          <div class="keyboard__keys__whiteNote" id="G3" onmousedown="playKeyboardNote('G', 3, 2, this)" onmouseup="playedKeyUp('G3')">
+          <div class="keyboard__keys__whiteNote" id="G3" onmousedown="playKeyboardNote('G', octaveValue, 2, this)" onmouseup="playedKeyUp('G3')">
           </div>
-          <div class="keyboard__keys__whiteNote" id="A3" onmousedown="playKeyboardNote('A', 3, 2, this)" onmouseup="playedKeyUp('A3')">
+          <div class="keyboard__keys__whiteNote" id="A3" onmousedown="playKeyboardNote('A', octaveValue, 2, this)" onmouseup="playedKeyUp('A3')">
           </div>
-          <div class="keyboard__keys__whiteNote" id="B3" onmousedown="playKeyboardNote('B', 3, 2, this)" onmouseup="playedKeyUp('B3')">
+          <div class="keyboard__keys__whiteNote" id="B3" onmousedown="playKeyboardNote('B', octaveValue, 2, this)" onmouseup="playedKeyUp('B3')">
           </div>
-          <div class="keyboard__keys__whiteNote" id="C4" onmousedown="playKeyboardNote('C', 4, 2, this)" onmouseup="playedKeyUp('C4')">
+          <div class="keyboard__keys__whiteNote" id="C4" onmousedown="playKeyboardNote('C', octaveValue + 1, 2, this)" onmouseup="playedKeyUp('C4')">
           </div>
-          <div class="keyboard__keys__whiteNote" id="D4" onmousedown="playKeyboardNote('D', 4, 2, this)" onmouseup="playedKeyUp('D4')">
+          <div class="keyboard__keys__whiteNote" id="D4" onmousedown="playKeyboardNote('D', octaveValue + 1, 2, this)" onmouseup="playedKeyUp('D4')">
           </div>
-          <div class="keyboard__keys__whiteNote" id="E4" onmousedown="playKeyboardNote('E', 4, 2, this)" onmouseup="playedKeyUp('E4')">
+          <div class="keyboard__keys__whiteNote" id="E4" onmousedown="playKeyboardNote('E', octaveValue + 1, 2, this)" onmouseup="playedKeyUp('E4')">
           </div>
-          <div class="keyboard__keys__whiteNote" id="F4" onmousedown="playKeyboardNote('F', 4, 2, this)" onmouseup="playedKeyUp('F4')">
+          <div class="keyboard__keys__whiteNote" id="F4" onmousedown="playKeyboardNote('F', octaveValue + 1, 2, this)" onmouseup="playedKeyUp('F4')">
           </div>
         </article>
       </article>
@@ -141,10 +142,6 @@
         <p class="loopBtn__label"><i class="fa fa-play" aria-hidden="true"></i></p>
       </div>
     </div>
-    <!-- <div class="loopControls__loopTimer__container">
-      <p class="loopControls__loopTimer" id="loopTimer">0</p>
-    </div> -->
-
   </section>
 
   <section class="loopControls loopControls2">
