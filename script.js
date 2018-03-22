@@ -6,7 +6,7 @@ const drumNoteContainer = document.getElementById('drumNoteContainer');
 const volumeSlider = document.getElementById('volumeSlider');
 
 // synth settins
-Synth.setSampleRate(4000);
+Synth.setSampleRate(20000);
 const piano = Synth.createInstrument('piano');
 Synth.setVolume(0.5);
 
@@ -39,7 +39,6 @@ let diff = 0;
 
 
 function playKeyboardNote(note, octave, duration, div) {
-  console.log('playKeyBoardNote')
   // if the key isn't currently pressed down, mark key as pressed and call note to be played
   if (div && keysDown[div.id] !== true) {
     keysDown[div.id] = true;
@@ -77,10 +76,8 @@ function playedKeyUp(noteName) {
 
 // change octave
 function changeOctave(upDown) {
-  console.log('change octave')
   if (upDown === 'up' && octaveValue < 7) {
     octaveValue += 1;
-    console.log(octaveValue)
   } else if (upDown === 'down' && octaveValue > 0) {
     octaveValue -= 1;
   }
@@ -89,7 +86,6 @@ function changeOctave(upDown) {
 
 // change octaves with arrow keys
 $(document).on('keydown', (e) => {
-  console.log('arrow key press')
   if (e.keyCode === 38 || e.keyCode === 39) {
     changeOctave('up');
   }
@@ -102,7 +98,6 @@ $(document).on('keydown', (e) => {
 $(document).on('keypress', (e) => {
   console.log(`keydown ${e.keyCode}`);
   if (e.keyCode === 97 || e.keyCode === 65) {
-    console.log('play c note')
     playKeyboardNote('C', octaveValue, 2, document.getElementById('C3'));
   }
   if (e.keyCode === 115 || e.keyCode === 83) {
@@ -521,4 +516,3 @@ function toggleInfo() {
 // refactor onkeydown and onkeyup
 // option to override loop each cycle
 // add recorder from microphone
-// redo title with gradient background

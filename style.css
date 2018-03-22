@@ -538,15 +538,11 @@ body {
     padding: 0;
     width: 100vw; }
   .keyboard {
-    background: none;
     box-shadow: none;
     width: 100vw; }
   .keyboard__keys {
     float: right;
-    margin-right: 10px;
-    position: relative; }
-  .keyboard__blackkeys {
-    top: -1px; }
+    margin-right: 10px; }
   .loopControls {
     left: 0;
     position: absolute;
@@ -555,14 +551,7 @@ body {
   .loopControls2 {
     top: 149px; }
   .loopBtn__led {
-    margin-top: 10px;
-    line-height: 5px;
-    color: #b3b3b3;
-    font-size: 6px; }
-  .playBtnOn {
-    color: #5f9c5f; }
-  .recorderOn {
-    color: #b03c3c; }
+    display: none; }
   .drumMachine__labelContainer {
     display: none; }
   .drumMachine__beatsContainer {
@@ -581,16 +570,14 @@ body {
   .loopProgress {
     display: none; }
   .keyboard__leftSettings__Btn {
-    height: 60px;
-    margin: 11px 0;
+    height: 40px;
+    margin: 30px 0;
     width: 25%; }
   .drumMachine__instr {
     width: 100%; }
   .drumMachine__beat {
     width: 6.25%; }
   .loopControls__header {
-    display: none; }
-  .drumMachine__header {
     display: none; } }
 
 @media screen and (max-width: 639px) {
