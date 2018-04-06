@@ -86,6 +86,7 @@ function changeOctave(upDown) {
 
 // change octaves with arrow keys
 $(document).on('keydown', (e) => {
+  console.log(e.charCode)
   if (e.keyCode === 38 || e.keyCode === 39) {
     changeOctave('up');
   }
@@ -96,99 +97,93 @@ $(document).on('keydown', (e) => {
 
 // listener for keypresses, both capital and lowercase. On keypress start play note function.
 $(document).on('keypress', (e) => {
-  console.log(`keydown ${e.keyCode}`);
-  if (e.keyCode === 97 || e.keyCode === 65) {
+  console.log(e.keyCode)
+  console.log(e.charCode)
+  if (e.charCode === 97 || e.charCode === 65) {
     playKeyboardNote('C', octaveValue, 2, document.getElementById('C3'));
   }
-  if (e.keyCode === 115 || e.keyCode === 83) {
+  if (e.charCode === 115 || e.charCode === 83) {
     playKeyboardNote('D', octaveValue, 2, document.getElementById('D3'));
   }
-  if (e.keyCode === 100 || e.keyCode === 68) {
+  if (e.charCode === 100 || e.charCode === 68) {
     playKeyboardNote('E', octaveValue, 2, document.getElementById('E3'));
   }
-  if (e.keyCode === 102 || e.keyCode === 70) {
+  if (e.charCode === 102 || e.charCode === 70) {
     playKeyboardNote('F', octaveValue, 2, document.getElementById('F3'));
   }
-  if (e.keyCode === 103 || e.keyCode === 71) {
+  if (e.charCode === 103 || e.charCode === 71) {
     playKeyboardNote('G', octaveValue, 2, document.getElementById('G3'));
   }
-  if (e.keyCode === 104 || e.keyCode === 72) {
+  if (e.charCode === 104 || e.charCode === 72) {
     playKeyboardNote('A', octaveValue, 2, document.getElementById('A3'));
   }
-  if (e.keyCode === 106 || e.keyCode === 74) {
+  if (e.charCode === 106 || e.charCode === 74) {
     playKeyboardNote('B', octaveValue, 2, document.getElementById('B3'));
   }
-  if (e.keyCode === 119 || e.keyCode === 87) {
+  if (e.charCode === 119 || e.charCode === 87) {
     playKeyboardNote('C#', octaveValue, 2, document.getElementById('C#3'));
   }
-  if (e.keyCode === 101 || e.keyCode === 69) {
+  if (e.charCode === 101 || e.charCode === 69) {
     playKeyboardNote('D#', octaveValue, 2, document.getElementById('D#3'));
   }
-  if (e.keyCode === 116 || e.keyCode === 84) {
+  if (e.charCode === 116 || e.charCode === 84) {
     playKeyboardNote('F#', octaveValue, 2, document.getElementById('F#3'));
   }
-  if (e.keyCode === 121 || e.keyCode === 89) {
+  if (e.charCode === 121 || e.charCode === 89) {
     playKeyboardNote('G#', octaveValue, 2, document.getElementById('G#3'));
   }
-  if (e.keyCode === 117 || e.keyCode === 85) {
+  if (e.charCode === 117 || e.charCode === 85) {
     playKeyboardNote('A#', octaveValue, 2, document.getElementById('A#3'));
   }
-  if (e.keyCode === 107 || e.keyCode === 75) {
+  if (e.charCode === 107 || e.charCode === 75) {
     playKeyboardNote('C', octaveValue + 1, 2, document.getElementById('C4'));
   }
-  if (e.keyCode === 108 || e.keyCode === 76) {
+  if (e.charCode === 108 || e.charCode === 76) {
     playKeyboardNote('D', octaveValue + 1, 2, document.getElementById('D4'));
   }
-  if (e.keyCode === 186 || e.keyCode === 59) {
+  if (e.charCode === 186 || e.charCode === 59) {
     playKeyboardNote('E', octaveValue + 1, 2, document.getElementById('E4'));
   }
-  if (e.keyCode === 222 || e.keyCode === 39) {
+  if (e.charCode === 222 || e.charCode === 39) {
     playKeyboardNote('F', octaveValue + 1, 2, document.getElementById('F4'));
   }
-  if (e.keyCode === 111 || e.keyCode === 79) {
+  if (e.charCode === 111 || e.charCode === 79) {
     playKeyboardNote('C#', octaveValue + 1, 2, document.getElementById('C#4'));
   }
-  if (e.keyCode === 112 || e.keyCode === 80) {
+  if (e.charCode === 112 || e.charCode === 80) {
     playKeyboardNote('D#', octaveValue + 1, 2, document.getElementById('D#4'));
   }
-  if (e.keyCode === 90 || e.keyCode === 122) {
-    console.log('c chord');
+  if (e.charCode === 90 || e.charCode === 122) {
     playKeyboardNote('C', octaveValue, 2, document.getElementById('C3'));
     playKeyboardNote('E', octaveValue, 2, document.getElementById('E3'));
     playKeyboardNote('G', octaveValue, 2, document.getElementById('G3'));
   }
-  if (e.keyCode === 88 || e.keyCode === 120) {
-    console.log('dm chord');
+  if (e.charCode === 88 || e.charCode === 120) {
     playKeyboardNote('D', octaveValue, 2, document.getElementById('D3'));
     playKeyboardNote('F', octaveValue, 2, document.getElementById('F3'));
     playKeyboardNote('A', octaveValue, 2, document.getElementById('A3'));
   }
-  if (e.keyCode === 99 || e.keyCode === 67) {
-    console.log('em chord');
+  if (e.charCode === 99 || e.charCode === 67) {
     playKeyboardNote('E', octaveValue, 2, document.getElementById('E3'));
     playKeyboardNote('G', octaveValue, 2, document.getElementById('G3'));
     playKeyboardNote('B', octaveValue, 2, document.getElementById('B3'));
   }
-  if (e.keyCode === 86 || e.keyCode === 118) {
-    console.log('F chord');
+  if (e.charCode === 86 || e.charCode === 118) {
     playKeyboardNote('F', octaveValue, 2, document.getElementById('F3'));
     playKeyboardNote('A', octaveValue, 2, document.getElementById('A3'));
     playKeyboardNote('C', octaveValue + 1, 2, document.getElementById('C4'));
   }
-  if (e.keyCode === 66 || e.keyCode === 98) {
-    console.log('G chord');
+  if (e.charCode === 66 || e.charCode === 98) {
     playKeyboardNote('G', octaveValue, 2, document.getElementById('G3'));
     playKeyboardNote('B', octaveValue, 2, document.getElementById('B3'));
     playKeyboardNote('D', octaveValue + 1, 2, document.getElementById('D4'));
   }
-  if (e.keyCode === 78 || e.keyCode === 110) {
-    console.log('Am chord');
+  if (e.charCode === 78 || e.charCode === 110) {
     playKeyboardNote('A', octaveValue, 2, document.getElementById('A3'));
     playKeyboardNote('C', octaveValue + 1, 2, document.getElementById('C4'));
     playKeyboardNote('E', octaveValue + 1, 2, document.getElementById('E4'));
   }
-  if (e.keyCode === 77 || e.keyCode === 109) {
-    console.log('D dim chord');
+  if (e.charCode === 77 || e.charCode === 109) {
     playKeyboardNote('B', octaveValue, 2, document.getElementById('B3'));
     playKeyboardNote('D', octaveValue + 1, 2, document.getElementById('D4'));
     playKeyboardNote('F', octaveValue + 1, 2, document.getElementById('F4'));
@@ -197,8 +192,10 @@ $(document).on('keypress', (e) => {
 
 // listen for keyup, start playedKeyUp function, that marks the note as no-longer being played.
 $(document).on('keyup', (e) => {
-  console.log(`up ${e.keyCode}`);
+  console.log('keyup')
+  console.log('keyup charcode', e.keyCode)
   if (e.keyCode === 97 || e.keyCode === 65) {
+
     playedKeyUp('C3');
   }
   if (e.keyCode === 115 || e.keyCode === 83) {
@@ -253,43 +250,36 @@ $(document).on('keyup', (e) => {
     playedKeyUp('D#4');
   }
   if (e.keyCode === 90 || e.keyCode === 122) {
-    console.log('c chord');
     playedKeyUp('C3');
     playedKeyUp('E3');
     playedKeyUp('G3');
   }
   if (e.keyCode === 88 || e.keyCode === 120) {
-    console.log('dm chord');
     playedKeyUp('D3');
     playedKeyUp('F3');
     playedKeyUp('A3');
   }
   if (e.keyCode === 99 || e.keyCode === 67) {
-    console.log('em chord');
     playedKeyUp('E3');
     playedKeyUp('G3');
     playedKeyUp('B3');
   }
   if (e.keyCode === 86 || e.keyCode === 118) {
-    console.log('F chord');
     playedKeyUp('F3');
     playedKeyUp('A3');
     playedKeyUp('C4');
   }
   if (e.keyCode === 66 || e.keyCode === 98) {
-    console.log('G chord');
     playedKeyUp('G3');
     playedKeyUp('B3');
     playedKeyUp('D4');
   }
   if (e.keyCode === 78 || e.keyCode === 110) {
-    console.log('Am chord');
     playedKeyUp('A3');
     playedKeyUp('C4');
     playedKeyUp('E4');
   }
   if (e.keyCode === 77 || e.keyCode === 109) {
-    console.log('D dim chord up');
     playedKeyUp('B3');
     playedKeyUp('D4');
     playedKeyUp('F4');
@@ -298,7 +288,6 @@ $(document).on('keyup', (e) => {
 
 // sets recording as on or off on both loops. Called by HTML.
 function toggleRecord(div, loopNum) {
-  console.log('toggle recording');
   if (loopNum === 1) {
     if (recording1 === false) {
       recording1 = true;
@@ -426,7 +415,6 @@ function stop() {
 
 // called by HTML.
 function togglePlay(div, loopNum) {
-  console.log('togglePlay');
   //Checks which play was pressed, updates styling, and marks are playing or not playing.
   if (loopNum === 1) {
     if (playing1 === false) {
@@ -504,6 +492,20 @@ volumeSlider.oninput = function volSlid() {
 function toggleInfo() {
   document.getElementById('infoDiv').classList.toggle('hideInfo');
 }
+
+// toggle waring message for when browser isn't firefox
+function toggleWarning() {
+  document.getElementById('warningDiv').classList.toggle('showWarning');
+}
+
+function init() {
+  console.log(navigator.userAgent)
+  if (!navigator.userAgent.includes('Edge') && !navigator.userAgent.includes('Firefox')) {
+    toggleWarning();
+  }
+}
+
+init();
 
 // todo
 // multiple drum patterns
