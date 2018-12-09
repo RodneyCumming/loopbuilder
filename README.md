@@ -1,7 +1,3 @@
-# loopbuilder
-
-https://devrod.github.io/loopbuilder/
-
 <div align="center">
  <h1 size="+2">LOOP BUILDER</h1>
  <h4><i>Loop station with keyboard and drum machine.</i></h4>
